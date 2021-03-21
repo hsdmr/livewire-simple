@@ -1,0 +1,72 @@
+html, body {
+    height: 100%;
+    background-color: #f5f5f5;
+}
+
+.main-div {
+    margin-top: 120px;
+    padding-bottom: 50px
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+    background-color: #2f2f2f;
+    color: #fff;
+    text-align: center
+}
+
+.header {
+    position: fixed;
+    height: 120px;
+    top: 0;
+    z-index: 10;
+    background-color: #ddd
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px;
+    margin: auto;
+}
+
+.max-330 {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+
+iframe {
+    max-width: 100%;
+    height: 240px;
+}
+
+.form-signin .checkbox {
+    font-weight: 400;
+}
+
+.form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
