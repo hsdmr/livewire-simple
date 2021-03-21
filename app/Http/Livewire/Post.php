@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\CategoryPosts;
+use App\Models\CategoryPost;
 use App\Models\Category;
 use App\Models\Post as ModelsPost;
 use Illuminate\Support\Facades\Auth;
@@ -34,7 +34,7 @@ class Post extends Component
                 'order' => $this->postOrder,
             ]);
             foreach($this->postCategories as $categoryId){
-                $CategoryPosts = CategoryPosts::create([
+                $CategoryPost = CategoryPost::create([
                     'category_id' => $categoryId,
                     'post_id' => $post->id,
                 ]);
@@ -47,12 +47,12 @@ class Post extends Component
                 'content' => $this->postContent,
                 'order' => $this->postOrder,
             ]);
-            $categories = CategoryPosts::where('post_id','=',$post->id)->get();
+            $categories = CategoryPost::where('post_id','=',$post->id)->get();
             foreach($categories as $category){
                 $category->delete();
             }
             foreach($this->postCategories as $categoryId){
-                $CategoryPosts = CategoryPosts::create([
+                $CategoryPost = CategoryPost::create([
                     'category_id' => $categoryId,
                     'post_id' => $post->id,
                 ]);
@@ -68,14 +68,14 @@ class Post extends Component
         $this->postContent = $post->content;
         $this->postOrder = $post->order;
         $this->postCategories = [];
-        foreach(CategoryPosts::where('post_id','=',$id)->get() as $postcategory){
+        foreach(CategoryPost::where('post_id','=',$id)->get() as $postcategory){
             array_push($this->postCategories,$postcategory->category_id);
         }
     }
 
     public function delete($id){
         ModelsPost::find($id)->delete();
-        $categories = CategoryPosts::where('post_id','=',$id)->get();
+        $categories = CategoryPost::where('post_id','=',$id)->get();
         foreach($categories as $category){
             $category->delete();
         }
