@@ -2,7 +2,6 @@
     <form wire:submit.prevent="submit" class="mb-4">
         <input wire:model="userId" type="hidden" value="">
         <input wire:model="userName" type="text" class="form-control my-1" value="">
-        {{$userName}}
         <input wire:model="userPassword" type="passowrd" class="form-control my-1" value="">
         <label><input wire:model="userRole" type="radio" name="userRole" value="main"> Kullanıcı</label>
         <label><input wire:model="userRole" type="radio" name="userRole" value="admin"> Admin</label>
