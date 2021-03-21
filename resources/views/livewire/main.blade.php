@@ -4,7 +4,7 @@
         <div class="col-2 btn" wire:click="logout"><i class="fas fa-power-off"></i></div>
         <div class="col-6">
             <select wire:model="inputSelect" class="form-control">
-                <option value="1">Genel</option>
+                <option value="0">Genel</option>
                 @foreach ($categories as $category)
                 <option value="{{$category->id}}">{{$category->title}}</option>
                 @endforeach

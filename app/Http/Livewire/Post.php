@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\CategoriesPost;
+use App\Models\CategoryPosts;
 use App\Models\Category;
 use App\Models\Post as ModelsPost;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +15,7 @@ class Post extends Component
     public $postTitle;
     public $postCategories = [];
     public $postContent;
-    public $postOrder;
+    public $postOrder = 0;
     public $categories;
 
     public function resetInputs(){
@@ -23,7 +23,7 @@ class Post extends Component
         $this->postTitle = '';
         $this->postCategories = [];
         $this->postContent = '';
-        $this->postOrder = '';
+        $this->postOrder = 0;
     }
 
     public function submit(){
@@ -34,7 +34,7 @@ class Post extends Component
                 'order' => $this->postOrder,
             ]);
             foreach($this->postCategories as $categoryId){
-                $categoryPost = CategoriesPost::create([
+                $CategoryPosts = CategoryPosts::create([
                     'category_id' => $categoryId,
                     'post_id' => $post->id,
                 ]);
@@ -47,12 +47,12 @@ class Post extends Component
                 'content' => $this->postContent,
                 'order' => $this->postOrder,
             ]);
-            $categories = CategoriesPost::where('post_id','=',$post->id)->get();
+            $categories = CategoryPosts::where('post_id','=',$post->id)->get();
             foreach($categories as $category){
                 $category->delete();
             }
             foreach($this->postCategories as $categoryId){
-                $categoryPost = CategoriesPost::create([
+                $CategoryPosts = CategoryPosts::create([
                     'category_id' => $categoryId,
                     'post_id' => $post->id,
                 ]);
@@ -68,14 +68,14 @@ class Post extends Component
         $this->postContent = $post->content;
         $this->postOrder = $post->order;
         $this->postCategories = [];
-        foreach(CategoriesPost::where('post_id','=',$id)->get() as $postcategory){
+        foreach(CategoryPosts::where('post_id','=',$id)->get() as $postcategory){
             array_push($this->postCategories,$postcategory->category_id);
         }
     }
 
     public function delete($id){
         ModelsPost::find($id)->delete();
-        $categories = CategoriesPost::where('post_id','=',$id)->get();
+        $categories = CategoryPosts::where('post_id','=',$id)->get();
         foreach($categories as $category){
             $category->delete();
         }
