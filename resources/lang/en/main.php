@@ -11,6 +11,7 @@ return [
     'User' => 'User',
 
     'Title' => 'Title',
+    'Order' => 'Order',
     'Content' => 'Content',
 
     'All' => 'All',

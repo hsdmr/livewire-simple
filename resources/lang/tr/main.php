@@ -11,6 +11,7 @@ return [
     'User' => 'Kullanıcı',
 
     'Title' => 'Başlık',
+    'Order' => 'Sıra',
     'Content' => 'İçerik',
 
     'All' => 'Hepsi',
