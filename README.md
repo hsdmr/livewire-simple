@@ -1,6 +1,6 @@
 # Simple Livewire Admin
 
-Türkçe kurulum için <a href="https://github.com/hsdmr/laravel-admin/blob/main/README-tr.md">burayı</a> tıklayın.
+Türkçe kurulum için <a href="https://github.com/hsdmr/livewire-simple/blob/main/README-tr.md">burayı</a> tıklayın.
 
 ## Requirements
 
