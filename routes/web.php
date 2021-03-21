@@ -45,4 +45,4 @@ Route::get('category', function () {
 Route::get('user', function () {
     $users = User::all();
     return view('user',compact('users'));
-})->name('user')->middleware('isdmin');
+})->name('user')->middleware('isAdmin');
