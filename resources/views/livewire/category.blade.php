@@ -1,8 +1,8 @@
 <div class="main-div" style="margin-top: 80px">
     <form wire:submit.prevent="submit" class="mb-4">
         <input wire:model.lazy="categoryId" type="hidden" value="">
-        <input wire:model.lazy="categoryTitle" type="text" class="form-control my-1" value="">
-        <button class="btn btn-success w-100" type="submit">Kaydet</button>
+        <input wire:model.lazy="categoryTitle" type="text" class="form-control my-1" value="" placeholder="{{__('main.Category')}}">
+        <button class="btn btn-success w-100" type="submit">{{__('main.Save')}}</button>
     </form>
 
     @foreach ($categories as $category)

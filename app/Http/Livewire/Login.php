@@ -7,8 +7,8 @@ use Livewire\Component;
 
 class Login extends Component
 {
-    public $inputUsername;
-    public $inputPassword;
+    public $inputUsername = 'admin';
+    public $inputPassword = 12345678;
     public $message;
 
     protected $rules = [

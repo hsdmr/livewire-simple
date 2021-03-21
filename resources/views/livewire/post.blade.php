@@ -3,7 +3,7 @@
         <input wire:model.lazy="postId" type="hidden">
         <div class="row mx-0">
             <div class="col-10 px-0">
-                <input wire:model.lazy="postTitle" type="text" class="form-control my-1" placeholder="Başlık">
+                <input wire:model.lazy="postTitle" type="text" class="form-control my-1" placeholder="{{__('main.Title')}}">
             </div>
             <div class="col-2 px-0">
                 <input wire:model.lazy="postOrder" type="number" class="form-control my-1" placeholder="Sıra">
@@ -14,8 +14,8 @@
             <label class="w-100"><input type="checkbox" wire:model="postCategories" value="{{$category->id}}"> {{$category->title}}</label>
             @endforeach
         </div>
-        <textarea wire:model.lazy="postContent" cols="30" rows="5" class="form-control my-1" placeholder="İçerik"></textarea>
-        <button class="btn btn-success w-100" type="submit">Kaydet</button>
+        <textarea wire:model.lazy="postContent" cols="30" rows="5" class="form-control my-1" placeholder="{{__('main.Content')}}"></textarea>
+        <button class="btn btn-success w-100" type="submit">{{__('main.Save')}}</button>
     </form>
 
     @foreach ($posts as $post)
