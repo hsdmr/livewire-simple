@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CategoryPost extends Model
+class CategoryPosts extends Model
 {
     use HasFactory;
-    protected $fillable = ['category_id','post_id'];
+    protected $fillable = ['category_id','posts_id'];
 }

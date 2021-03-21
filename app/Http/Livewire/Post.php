@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\CategoryPost;
+use App\Models\CategoryPosts;
 use App\Models\Category;
-use App\Models\Post as ModelsPost;
+use App\Models\Posts as ModelsPosts;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -28,33 +28,33 @@ class Post extends Component
 
     public function submit(){
         if($this->postId==0){
-            $post = ModelsPost::create([
+            $post = ModelsPosts::create([
                 'title' => $this->postTitle,
                 'content' => $this->postContent,
                 'order' => $this->postOrder,
             ]);
             foreach($this->postCategories as $categoryId){
-                $CategoryPost = CategoryPost::create([
+                $CategoryPosts = CategoryPosts::create([
                     'category_id' => $categoryId,
-                    'post_id' => $post->id,
+                    'posts_id' => $post->id,
                 ]);
             }
         }
         else{
-            $post = ModelsPost::find($this->postId);
+            $post = ModelsPosts::find($this->postId);
             $post->update([
                 'title' => $this->postTitle,
                 'content' => $this->postContent,
                 'order' => $this->postOrder,
             ]);
-            $categories = CategoryPost::where('post_id','=',$post->id)->get();
+            $categories = CategoryPosts::where('post_id','=',$post->id)->get();
             foreach($categories as $category){
                 $category->delete();
             }
             foreach($this->postCategories as $categoryId){
-                $CategoryPost = CategoryPost::create([
+                $CategoryPosts = CategoryPosts::create([
                     'category_id' => $categoryId,
-                    'post_id' => $post->id,
+                    'posts_id' => $post->id,
                 ]);
             }
         }
@@ -62,20 +62,20 @@ class Post extends Component
     }
 
     public function edit($id){
-        $post = ModelsPost::find($id);
+        $post = ModelsPosts::find($id);
         $this->postId = $id;
         $this->postTitle = $post->title;
         $this->postContent = $post->content;
         $this->postOrder = $post->order;
         $this->postCategories = [];
-        foreach(CategoryPost::where('post_id','=',$id)->get() as $postcategory){
+        foreach(CategoryPosts::where('posts_id','=',$id)->get() as $postcategory){
             array_push($this->postCategories,$postcategory->category_id);
         }
     }
 
     public function delete($id){
-        ModelsPost::find($id)->delete();
-        $categories = CategoryPost::where('post_id','=',$id)->get();
+        ModelsPosts::find($id)->delete();
+        $categories = CategoryPosts::where('posts_id','=',$id)->get();
         foreach($categories as $category){
             $category->delete();
         }
@@ -84,7 +84,7 @@ class Post extends Component
     public function render()
     {
         $this->categories = Category::all();
-        $this->posts = ModelsPost::orderBy('order','asc')->get();
+        $this->posts = ModelsPosts::orderBy('order','asc')->get();
         return view('livewire.post');
     }
 }

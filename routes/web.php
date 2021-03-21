@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Category;
-use App\Models\Post;
+use App\Models\Posts;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -22,7 +22,7 @@ Route::get('/', function () {
 })->name('login');
 
 Route::get('home', function () {
-    $posts = Post::all();
+    $posts = Posts::all();
     $categories = Category::all();
     return view('main',compact('posts','categories'));
 })->name('main')->middleware('isMain');
@@ -32,7 +32,7 @@ Route::get('admin', function () {
 })->name('admin')->middleware('isAdmin');
 
 Route::get('post', function () {
-    $posts = Post::all();
+    $posts = Posts::all();
     $categories = Category::all();
     return view('post',compact('posts','categories'));
 })->name('post')->middleware('isAdmin');
