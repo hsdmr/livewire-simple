@@ -36,6 +36,7 @@ Bilgisayarınızda git kurulu değilse bu <a href="https://git-scm.com/downloads
   php artisan migrate:fresh
   php artisan db:seed
   php artisan optimize
+  php artisan livewire:discover
   php artisan serve
   ```
 
