@@ -32,7 +32,7 @@ class Login extends Component
             if(Auth::user()->role=='admin') return redirect()->route('admin');
         }
         else {
-            $this->message = 'Kullanıcı Girişi Başarısız';
+            $this->message = __('auth.failed');
         }
     }
 

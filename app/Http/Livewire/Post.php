@@ -11,11 +11,11 @@ use Livewire\Component;
 class Post extends Component
 {
     public $posts;
-    public $postId = 0;
+    public $postId;
     public $postTitle;
     public $postCategories = [];
     public $postContent;
-    public $postOrder = 0;
+    public $postOrder;
     public $categories;
 
     public function resetInputs(){
