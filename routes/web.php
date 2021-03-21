@@ -25,24 +25,24 @@ Route::get('home', function () {
     $posts = Post::all();
     $categories = Category::all();
     return view('main',compact('posts','categories'));
-})->name('main')->middleware('is.main');
+})->name('main')->middleware('isMain');
 
 Route::get('admin', function () {
     return view('admin');
-})->name('admin')->middleware('is.admin');
+})->name('admin')->middleware('isAdmin');
 
 Route::get('post', function () {
     $posts = Post::all();
     $categories = Category::all();
     return view('post',compact('posts','categories'));
-})->name('post')->middleware('is.admin');
+})->name('post')->middleware('isAdmin');
 
 Route::get('category', function () {
     $categories = Category::all();
     return view('category',compact('categories'));
-})->name('category')->middleware('is.admin');
+})->name('category')->middleware('isAdmin');
 
 Route::get('user', function () {
     $users = User::all();
     return view('user',compact('users'));
-})->name('user')->middleware('is.admin');
+})->name('user')->middleware('isdmin');
