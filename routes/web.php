@@ -20,10 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('login');
 })->name('login');
-Route::post('logout', function () {
-    Auth::logout();
-    return redirect()->route('login');
-})->name('logout');
+
 Route::get('home', function () {
     $posts = Post::all();
     $categories = Category::all();
