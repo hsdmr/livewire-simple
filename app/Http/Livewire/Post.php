@@ -47,7 +47,7 @@ class Post extends Component
                 'content' => $this->postContent,
                 'order' => $this->postOrder,
             ]);
-            $categories = CategoryPosts::where('post_id','=',$post->id)->get();
+            $categories = CategoryPosts::where('posts_id','=',$post->id)->get();
             foreach($categories as $category){
                 $category->delete();
             }
