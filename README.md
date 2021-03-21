@@ -37,6 +37,7 @@ If git is not installed on your computer, install the appropriate one for your o
   php artisan migrate:fresh
   php artisan db:seed
   php artisan optimize
+  php artisan livewire:discover
   php artisan serve
   ```
 
