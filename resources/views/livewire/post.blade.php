@@ -6,7 +6,7 @@
                 <input wire:model.lazy="postTitle" type="text" class="form-control my-1" placeholder="{{__('main.Title')}}">
             </div>
             <div class="col-2 px-0">
-                <input wire:model.lazy="postOrder" type="number" class="form-control my-1" placeholder="{{__('main.Order')}}">
+                <input wire:model.lazy="postOrder" type="number" class="form-control my-1" placeholder="{{__('main.Order')}}" value="{{$postOrder}}">
             </div>
         </div>
         <div style="max-height: 100px; overflow: auto; text-align:left">

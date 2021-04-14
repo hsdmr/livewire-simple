@@ -12,13 +12,28 @@
         </div>
         <div class="col-6"><input type="text" wire:model="inputSearch" class="form-control" placeholder="{{__('main.Search')}}"></div>
     </div>
-
-    @foreach ($posts as $post)
-    <div class="card my-2">
-        <div>{!!$post->content!!}</div>
-        <b>{{$post->title}}</b>
-    </div>
-    @endforeach
+    <div class="accordion my-2" id="accordionPosts">
+        @php
+            $i=1;
+        @endphp
+        @foreach ($posts as $post)
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="heading{{$i}}">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$i}}" aria-expanded="true" aria-controls="collapse{{$i}}">
+                {{$post->title}}
+            </button>
+          </h2>
+          <div id="collapse{{$i}}" class="accordion-collapse collapse" aria-labelledby="heading{{$i}}" data-bs-parent="#accordionPosts">
+            <div class="accordion-body">
+                {!!$post->content!!}
+            </div>
+          </div>
+        </div>
+        @php
+            $i++;
+        @endphp
+        @endforeach
+      </div>
 
     <div class="max-330 footer">
         <p class="my-2">© 2020 – 2021</p>

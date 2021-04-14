@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\User as ModelsUser;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
